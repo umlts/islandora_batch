@@ -306,7 +306,7 @@
 					<xsl:value-of select="$type"/>: <xsl:value-of select="."/>
 				</xsl:when>
 				<xsl:when test="contains ('isbn issn uri doi lccn uri', $type)">
-					<xsl:value-of select="$type"/>: <xsl:value-of select="."/>
+					<xsl:value-of select="$type"/>: <xsl:value-of select="."/>
 				</xsl:when>
 				<xsl:otherwise>
 						<xsl:value-of select="."/>
