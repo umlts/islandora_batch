@@ -248,6 +248,14 @@ class IslandoraBatchViewsFieldHandlerSetActions extends IslandoraBatchViewsField
         )),
         'query' => drupal_get_destination(),
       ),
+      array(
+        'title' => t('Purge objects'),
+        'href' => format_string('!base/!set_id/purge_object', array(
+          '!base' => $this->actionBasePath(),
+          '!set_id' => $this->getSetId($values),
+        )),
+        'query' => drupal_get_destination(),
+      ),
     );
   }
 
