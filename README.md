@@ -31,7 +31,7 @@ Install as usual, see [this](https://drupal.org/documentation/install/modules-th
 
 After you have installed and enabled the Islandora Batch module, go to Administration » Islandora » Islandora Utility Modules » Islandora Batch Settings (admin/islandora/tools/batch) to configure the module.
 
-![Configuration menu](https://wiki.duraspace.org/download/attachments/69834590/image2016-9-28%2010%3A51%3A43.png?version=1&modificationDate=1475074303599&api=v2)
+![Configuration menu](https://cloud.githubusercontent.com/assets/10052068/18972680/23935662-8668-11e6-8a21-4c52d7aac69f.png)
 
 You should make sure that the path to your java executable is correct.  Optionally, if you have the Drupal Views module enabled, you can also have the module link back to the Batch Queue in its results messages
 
