@@ -73,9 +73,14 @@ function islandora_batch_delete_item_page_callback($id) {
  */
 function islandora_batch_delete_item_form($form, &$form_state, $id) {
   form_load_include($form_state, 'inc', 'islandora_batch', 'includes/menu');
-  return confirm_form($form, t('Are you sure you want to delete "@item" from the ingest queue?', array(
-    '@item' => $id,
-  )), 'islandora_batch/reports/queue');
+  return confirm_form(
+    $form,
+    t('Are you sure you want to delete "@item" from the ingest queue?', array(
+        '@item' => $id,
+    )),
+    'islandora_batch/reports/queue',
+    t('This will delete the item from the batch queue. Ingested objects will not be deleted from your repository.')
+  );
 }
 
 /**
@@ -206,7 +211,8 @@ function islandora_batch_delete_set_form($form, &$form_state, $id, $management) 
     t('Are you sure you want to delete the items in set "@set" from the queue?', array(
       '@set' => $id,
     )),
-    $management ? "admin/reports/islandora_batch_queue/$id" : "islandora_batch/reports/queue/$id"
+    $management ? "admin/reports/islandora_batch_queue/$id" : "islandora_batch/reports/queue/$id",
+    t('This will delete the set from the batch queue. Ingested objects will not be deleted from your repository.')
   );
 }
 
