@@ -142,7 +142,7 @@ class IslandoraBatchViewsFieldHandlerQueueActions extends IslandoraBatchViewsFie
         'query' => drupal_get_destination(),
       ),
       array(
-        'title' => t('Delete item from queue'),
+        'title' => t('Delete item'),
         'href' => format_string('!base/!item_id/delete', array(
           '!base' => $this->actionBasePath(),
           '!item_id' => $this->getItemId($values),
@@ -233,7 +233,7 @@ class IslandoraBatchViewsFieldHandlerSetActions extends IslandoraBatchViewsField
         'query' => drupal_get_destination(),
       ),
       array(
-        'title' => t('Delete set from queue'),
+        'title' => t('Delete set'),
         'href' => format_string('!base/!set_id/delete', array(
           '!base' => $this->actionBasePath(),
           '!set_id' => $this->getSetId($values),

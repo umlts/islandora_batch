@@ -63,13 +63,13 @@ function islandora_batch_menu() {
     'access arguments' => array(2),
   );
   $items['islandora_batch/reports/queue/%islandora_batch_set/delete'] = $delete_set_base + array(
-    'title' => 'Delete set from queue',
+    'title' => 'Delete set',
     'page arguments' => array(3, FALSE),
     'access arguments' => array(3),
     'type' => MENU_LOCAL_ACTION,
   );
   $items['admin/reports/islandora_batch_queue/%islandora_batch_set/delete'] = $delete_set_base + array(
-    'title' => 'Delete set from queue',
+    'title' => 'Delete set',
     'page arguments' => array(3, TRUE),
     'access arguments' => array(3),
     'type' => MENU_LOCAL_ACTION,
