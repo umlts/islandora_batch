@@ -100,7 +100,7 @@ function islandora_batch_drush_command() {
   }
   else {
     $items['islandora_batch_scan_preprocess']['options']['target'] = array(
-      'description' => 'The target to directory or zip file to scan.',
+      'description' => 'The target to directory or zip file to scan. Requires the full path to your archive from root directory. e.g. /var/www/drupal/sites/archive.zip',
       'required' => TRUE,
     );
   }
