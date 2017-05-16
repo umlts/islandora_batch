@@ -44,6 +44,7 @@ Further documentation for this module is available at [our wiki](https://wiki.du
 The base ZIP/directory preprocessor can be called as a drush script (see `drush help islandora_batch_scan_preprocess` for additional parameters):
 
 Drush made the `target` parameter reserved as of Drush 7. To allow for backwards compatability this will be preserved.
+(`target` option requires the full path to your archive from root directory. e.g. /var/www/drupal/sites/archive.zip)
 
 Drush 7 and above:
 
