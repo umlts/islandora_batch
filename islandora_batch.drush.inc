@@ -131,6 +131,32 @@ function drush_islandora_batch_scan_preprocess_validate() {
   if ($encoding_check !== NULL) {
     drush_set_error('INVALID ENCODING', $encoding_check);
   }
+  $type = drush_get_option('type');
+  if ($type != 'zip' xor 'directory') {
+    drush_set_error('INVALID TYPE OPTION', $type);
+  }
+  $cmodels = explode(',', drush_get_option('content_models'));
+  foreach ($cmodels as $cmodel) {
+    if (!islandora_object_load($cmodel)) {
+      drush_set_error('INVALID CONTENT MODEL', $cmodel);
+    }
+  }
+  $parent = drush_get_option('parent');
+  if (!islandora_object_load($parent)) {
+    drush_set_error('INVALID PARENT', $parent);
+  }
+  if (DRUSH_VERSION >= 7) {
+    $scan_target = drush_get_option('scan_target');
+    if (!file_exists($scan_target)) {
+      drush_set_error('SCAN TARGET DOES NOT EXIST', $scan_target);
+    }
+  }
+  else {
+    $target = drush_get_option('target');
+    if (!file_exists($target)) {
+      drush_set_error('TARGET DOES NOT EXIST', $target);
+    }
+  }
 }
 
 /**
