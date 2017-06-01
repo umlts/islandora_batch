@@ -131,6 +131,25 @@ function drush_islandora_batch_scan_preprocess_validate() {
   if ($encoding_check !== NULL) {
     drush_set_error('INVALID ENCODING', $encoding_check);
   }
+
+  $path = drush_get_option('scan_target') ? drush_get_option('scan_target') : drush_get_option('target');
+  $target_checks = islandora_batch_scan_check_target(drupal_strtolower(drush_get_option('type')), $path);
+  if (count($target_checks)) {
+    foreach ($target_checks as $target_check) {
+      drush_set_error($target_check['error'], NULL, $target_check['label']);
+    }
+  }
+
+  $cmodels = explode(',', drush_get_option('content_models'));
+  foreach ($cmodels as $cmodel) {
+    if (!islandora_object_load($cmodel)) {
+      drush_set_error('INVALID CONTENT MODEL', NULL, dt('"!cmodel" is not a valid content model. ', array('!cmodel' => $cmodel)));
+    }
+  }
+  $parent = drush_get_option('parent');
+  if (!islandora_object_load($parent)) {
+    drush_set_error('INVALID PARENT', NULL, dt('"!parent" does not exist or is not accessible. ', array('!parent' => $parent)));
+  }
 }
 
 /**

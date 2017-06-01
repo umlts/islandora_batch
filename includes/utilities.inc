@@ -205,3 +205,94 @@ function islandora_batch_scan_check_encoding($type, $encoding) {
     }
   }
 }
+
+/**
+ * Helper to test scan target/target validity.
+ *
+ * @param string $type
+ *   The "type" of target, either "zip" or "directory".
+ * @param string $path
+ *   The path to the target.
+ *
+ * @return array
+ *   An array of arrays containing an error string and output label for
+ *   use in drush_set_error(). Empty if we encounter no errors.
+ */
+function islandora_batch_scan_check_target($type, $path) {
+  $errors = array();
+  if ($type == 'zip') {
+    if (DRUSH_VERSION >= 7) {
+      if (!is_readable($path)) {
+        $errors[] = array(
+          'error' => 'SCAN TARGET DOES NOT EXIST',
+          'label' => dt('"!target" does not exist or is not readable. ', array('!target' => $path)),
+        );
+      }
+      else {
+        if (!is_file($path)) {
+          $errors[] = array(
+            'error' => 'SCAN TARGET IS NOT A FILE',
+            'label' => dt('"!target" is not a file. ', array('!target' => $path)),
+          );
+        }
+      }
+    }
+    else {
+      if (!is_readable($path)) {
+        $errors[] = array(
+          'error' => 'TARGET DOES NOT EXIST',
+          'label' => dt('"!target" does not exist or is not readable. ', array('!target' => $path)),
+        );
+      }
+      else {
+        if (!is_file($path)) {
+          $errors[] = array(
+            'error' => 'TARGET IS NOT A FILE',
+            'label' => dt('"!target" is not a file. ', array('!target' => $path)),
+          );
+        }
+      }
+    }
+  }
+  elseif ($type == 'directory') {
+    if (DRUSH_VERSION >= 7) {
+      if (!is_readable($path)) {
+        $errors[] = array(
+          'error' => 'SCAN TARGET DOES NOT EXIST',
+          'label' => dt('"!target" does not exist or is not readable. ', array('!target' => $path)),
+        );
+      }
+      else {
+        if (!is_dir($path)) {
+          $errors[] = array(
+            'error' => 'SCAN TARGET IS NOT A DIRECTORY',
+            'label' => dt('"!target" is not a directory. ', array('!target' => $path)),
+          );
+        }
+      }
+    }
+    else {
+      if (!is_readable($path)) {
+        $errors[] = array(
+          'error' => 'TARGET DOES NOT EXIST',
+          'label' => dt('"!target" does not exist or is not readable. ', array('!target' => $path)),
+        );
+      }
+      else {
+        if (!is_dir($path)) {
+          $errors[] = array(
+            'error' => 'TARGET IS NOT A DIRECTORY',
+            'label' => dt('"!target" is not a directory. ', array('!target' => $path)),
+          );
+        }
+      }
+    }
+  }
+  else {
+    $errors[] = array(
+      'error' => 'INVALID TYPE OPTION',
+      'label' => dt('--type must be one of "directory" or "zip". '),
+    );
+  }
+  return $errors;
+}
