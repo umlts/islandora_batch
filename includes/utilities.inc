@@ -225,7 +225,7 @@ function islandora_batch_scan_check_target($type, $path) {
       if (!is_readable($path)) {
         $errors[] = array(
           'error' => 'SCAN TARGET DOES NOT EXIST',
-          'label' => dt('"!target" does not exist or is not readable. ', array('!target' => $path)),
+          'label' => dt('"!target" does not exist as an absolute path or is not readable. ', array('!target' => $path)),
         );
       }
       else {
@@ -241,7 +241,7 @@ function islandora_batch_scan_check_target($type, $path) {
       if (!is_readable($path)) {
         $errors[] = array(
           'error' => 'TARGET DOES NOT EXIST',
-          'label' => dt('"!target" does not exist or is not readable. ', array('!target' => $path)),
+          'label' => dt('"!target" does not exist as an absolute path or is not readable. ', array('!target' => $path)),
         );
       }
       else {
@@ -259,7 +259,7 @@ function islandora_batch_scan_check_target($type, $path) {
       if (!is_readable($path)) {
         $errors[] = array(
           'error' => 'SCAN TARGET DOES NOT EXIST',
-          'label' => dt('"!target" does not exist or is not readable. ', array('!target' => $path)),
+          'label' => dt('"!target" does not exist as an absolute path or is not readable. ', array('!target' => $path)),
         );
       }
       else {
@@ -275,7 +275,7 @@ function islandora_batch_scan_check_target($type, $path) {
       if (!is_readable($path)) {
         $errors[] = array(
           'error' => 'TARGET DOES NOT EXIST',
-          'label' => dt('"!target" does not exist or is not readable. ', array('!target' => $path)),
+          'label' => dt('"!target" does not exist as an absolute path or is not readable. ', array('!target' => $path)),
         );
       }
       else {
