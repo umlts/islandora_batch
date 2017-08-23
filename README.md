@@ -80,6 +80,10 @@ then, to ingest the queued objects:
 
 Custom ingests can be written by [extending](http://github.com/Islandora/islandora_batch/wiki/How-To-Extend) any of the existing preprocessors and batch object implementations. Checkout the [example implemenation](http://github.com/Islandora/islandora_batch/wiki/Example-Implementation-Tutorial) for more details.
 
+### Clearing the semaphore table
+
+If a user kills a Drush batch ingest, or a batch ingest initiated via the web GUI dies for some reason, it is impossible to start another batch ingest until the Islandora Batch entry in Drupal's `semaphore` table expires. You may clear this entry manually within your database, but doing so may impact other batch ingest jobs that are running. If you are sure no other batch ingest jobs are running, delete the row from Drupal's `semaphore` table where the `name` is 'islandora_batch_ingest'.
+
 ## Troubleshooting/Issues
 
 Having problems or solved a problem? Check out the Islandora google groups for a solution.
