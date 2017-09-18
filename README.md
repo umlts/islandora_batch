@@ -96,7 +96,6 @@ Having problems or solved a problem? Check out the Islandora google groups for a
 Current maintainers:
 
 * [Diego Pino](https://github.com/DiegoPino)
-* [Adam Vessey](https://github.com/adam-vessey)
 
 ## Development
 
