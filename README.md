@@ -4,13 +4,16 @@
 
 This module implements a batch framework, as well as a basic ZIP/directory ingester.
 
-The ingest is a two-step process:
+The ingest is a three-step process:
 
-* Preprocessing: The data is scanned, and a number of entries created in the
+* __Preprocessing:__ The data is scanned, and a number of entries created in the
   Drupal database.  There is minimal processing done at this point, so it can
   complete outside of a batch process.
-* Ingest: The data is actually processed and ingested. This happens inside of
+* __Ingest:__ The data is actually processed and ingested. This happens inside of
   a Drupal batch.
+* __Cleanup:__ The batch entries in the Drupal database need to be deleted, so the
+ associated temp files can be purged. This can be configured to happen automatically,
+ or can be done manually.
 
 ## Requirements
 
@@ -32,7 +35,7 @@ After you have installed and enabled the Islandora Batch module, go to Administr
 
 ![Configuration menu](https://cloud.githubusercontent.com/assets/10052068/18972680/23935662-8668-11e6-8a21-4c52d7aac69f.png)
 
-You should make sure that the path to your `java` executable is correct.  Optionally, if you have the Drupal Views module enabled, you can also have the module link back to the Batch Queue in its results messages
+You should make sure that the path to your `java` executable is correct.  The "Auto-remove batch set" option will delete successful batches from the drupal database immediately after the batch completes. If this is not selected, and if you have the Drupal Views module enabled, you can also have the module link back to the Batch Queue in its results messages.
 
 ## Documentation
 
@@ -74,6 +77,8 @@ Drush 6 and below:
 then, to ingest the queued objects:
 
 `drush -v -u 1 --uri=http://digital.library.yorku.ca islandora_batch_ingest`
+
+After successful ingest, if the Drupal batch sets are not automatically cleared (see Configuration section above), it is advised to review and delete batch sets that are no longer needed. The existence of the batch set prevents any associated uploaded files in Drupal's temp folder (often including the ingested payloads) from being deleted.
 
 ### Customization
 
