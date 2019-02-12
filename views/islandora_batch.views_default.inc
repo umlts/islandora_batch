@@ -382,6 +382,7 @@ function islandora_batch_views_default_views() {
     'id' => 'id',
     'name' => 'name',
     'created' => 'created',
+    'completed' => 'completed',
     'id_1' => 'id_1',
     'nothing' => 'nothing',
     'nothing_3' => 'nothing_3',
@@ -406,6 +407,13 @@ function islandora_batch_views_default_views() {
       'empty_column' => 0,
     ),
     'created' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'desc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'completed' => array(
       'sortable' => 1,
       'default_sort_order' => 'desc',
       'align' => '',
@@ -477,6 +485,11 @@ function islandora_batch_views_default_views() {
   $handler->display->display_options['fields']['created']['table'] = 'islandora_batch_set';
   $handler->display->display_options['fields']['created']['field'] = 'created';
   $handler->display->display_options['fields']['created']['date_format'] = 'long';
+  /* Field: Islandora Batch: Completed Date */
+  $handler->display->display_options['fields']['completed']['id'] = 'completed';
+  $handler->display->display_options['fields']['completed']['table'] = 'islandora_batch_set';
+  $handler->display->display_options['fields']['completed']['field'] = 'completed';
+  $handler->display->display_options['fields']['completed']['date_format'] = 'long';
   /* Field: COUNT(Islandora Batch: ID) */
   $handler->display->display_options['fields']['id_1']['id'] = 'id_1';
   $handler->display->display_options['fields']['id_1']['table'] = 'islandora_batch_queue';
@@ -535,6 +548,11 @@ function islandora_batch_views_default_views() {
   $handler->display->display_options['fields']['created']['table'] = 'islandora_batch_set';
   $handler->display->display_options['fields']['created']['field'] = 'created';
   $handler->display->display_options['fields']['created']['date_format'] = 'long';
+  /* Field: Islandora Batch: Completed Date */
+  $handler->display->display_options['fields']['completed']['id'] = 'completed';
+  $handler->display->display_options['fields']['completed']['table'] = 'islandora_batch_set';
+  $handler->display->display_options['fields']['completed']['field'] = 'completed';
+  $handler->display->display_options['fields']['completed']['date_format'] = 'long';
   /* Field: COUNT(Islandora Batch: ID) */
   $handler->display->display_options['fields']['id_1']['id'] = 'id_1';
   $handler->display->display_options['fields']['id_1']['table'] = 'islandora_batch_queue';

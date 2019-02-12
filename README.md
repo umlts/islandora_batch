@@ -78,7 +78,11 @@ then, to ingest the queued objects:
 
 `drush -v -u 1 --uri=http://digital.library.yorku.ca islandora_batch_ingest`
 
-After successful ingest, if the Drupal batch sets are not automatically cleared (see Configuration section above), it is advised to review and delete batch sets that are no longer needed. The existence of the batch set prevents any associated uploaded files in Drupal's temp folder (often including the ingested payloads) from being deleted.
+After successful ingest, if the Drupal batch sets are not automatically cleared (see Configuration section above), it is advised to review and delete batch sets that are no longer needed. The existence of the batch set prevents any associated uploaded files in Drupal's temp folder (often including the ingested payloads) from being deleted. This can be done manually from the batch sets report, or using Drush:
+
+`drush -v -u 1 --uri=http://localhost islandora_batch_cleanup_processed_sets --time=1438179447`
+
+where the `--time` parameter is a Unix timestamp. This will delete sets that were marked completed before (i.e. older than) the given timestamp. For example, to calculate the timestamp for 24h ago, use `date +%s` from a unix terminal then subtract 86,400 seconds.
 
 ### Customization
 

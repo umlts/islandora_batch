@@ -163,6 +163,20 @@ function islandora_batch_views_data() {
         'handler' => 'views_handler_filter_date',
       ),
     ),
+    'completed' => array(
+      'title' => t('Completed Date'),
+      'help' => t('The date on which the given set was marked finished.'),
+      'field' => array(
+        'handler' => 'views_handler_field_date',
+        'click sortable' => TRUE,
+      ),
+      'sort' => array(
+        'handler' => 'views_handler_sort_date',
+      ),
+      'filter' => array(
+        'handler' => 'views_handler_filter_date',
+      ),
+    ),
     'actions' => array(
       'title' => t('Set Actions'),
       'help' => t('A list of actions which may be performed on a set of items in the queue.'),
