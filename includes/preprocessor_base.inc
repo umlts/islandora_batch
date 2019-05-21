@@ -146,7 +146,9 @@ abstract class IslandoraBatchPreprocessor {
     $parent_pid = $this->parameters['parent'];
     // Not specifying a namespace should result in one from the default
     // declared in the fedora.fcfg ("changeme" by default).
-    $namespace = NULL;
+    $namespace = explode(":", $parent_pid)[0];
+dd($namespace);
+//    $namespace = NULL;
     if (module_exists('islandora_basic_collection') && !isset($collection_policies[$parent_pid])) {
       $parent = islandora_object_load($parent_pid);
       if (isset($parent['COLLECTION_POLICY'])) {
