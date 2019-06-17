@@ -65,11 +65,11 @@ A fuller example, which preprocesses large image objects for inclusion in the co
 
 Drush 7 and above:
 
-`drush -v -u 1 --uri=http://digital.library.yorku.ca islandora_batch_scan_preprocess --content_models=islandora:sp_large_image_cmodel --parent=yul:F0433 --parent_relationship_pred=isMemberOfCollection --type=directory --scan_target=/tmp/batch_ingest`
+`drush -v -u 1 --uri=http://digital.library.yorku.ca islandora_batch_scan_preprocess --content_models=islandora:sp_large_image_cmodel --parent=yul:F0433 --namespace=yul --parent_relationship_pred=isMemberOfCollection --type=directory --scan_target=/tmp/batch_ingest`
 
 Drush 6 and below:
 
-`drush -v -u 1 --uri=http://digital.library.yorku.ca islandora_batch_scan_preprocess --content_models=islandora:sp_large_image_cmodel --parent=yul:F0433 --parent_relationship_pred=isMemberOfCollection --type=directory --target=/tmp/batch_ingest`
+`drush -v -u 1 --uri=http://digital.library.yorku.ca islandora_batch_scan_preprocess --content_models=islandora:sp_large_image_cmodel --parent=yul:F0433 --namespace=yul --parent_relationship_pred=isMemberOfCollection --type=directory --target=/tmp/batch_ingest`
 
 then, to ingest the queued objects:
 
